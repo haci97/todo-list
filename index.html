@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https: //fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <link href="https: //fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="wrapper" class="wrapper">
+        <header>
+            <h1 id="current__date" class="current__date"></h1>
+            <h1 id="current__time" class="current__time"></h1>
+            <i id="theme__icon" class="theme__icon fas fa-lightbulb"></i>
+        </header>
+        <main>
+            <div class="background__overlay"></div>
+            <div id="task__container" class="task__container">
+                <i id="box__icon" class="box__icon far fa-square"></i>
+                <i id="checkedbox__icon" class="checkedbox__icon fas fa-check-square"></i>
+                <h2 id="task__title" class="task__title">
+                   <!-- input value here -->
+                </h2>
+                <i id="drag__icon" class="drag__icon fas fa-grip-vertical"></i>
+                <i id="delete__icon" class="delete__icon far fa-trash-alt"></i>
+            </div>
+        </main>
+        <footer>
+            <i id="add__task-icon" class="add__task-icon fas fa-plus"></i>
+            <input id="add__task-text" class="add__task-text" placeholder="Add task">
+        </footer>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+
+</html>
