@@ -16,7 +16,9 @@ html {
 
 body {
   font-family: "Noto Sans", sans-serif;
-  letter-spacing: 0.7px;
+  letter-spacing: 0.6px;
+  min-height: 100%;
+  width: 100%;
   background: rgb(223, 223, 223);
   background: -moz-radial-gradient(
     circle,
@@ -37,7 +39,7 @@ body {
 }
 
 .wrapper {
-  width: 100rem;
+  width: 80rem;
   margin: auto;
 }
 
@@ -83,20 +85,20 @@ header {
 }
 
 .theme__icon {
-  padding: 5px;
-  margin-left: auto;
   font-size: 2.6rem;
   color: #23224c;
+  padding: 5px;
+  margin-left: auto;
   cursor: pointer;
 }
 
 main {
-  height: 76rem;
+  position: relative;
+  z-index: 2;
+  height: 60rem;
   padding: 15px;
   margin: auto;
   margin-top: 15px;
-  position: relative;
-  z-index: 2;
   background-color: #ededed80;
   background-image: url(/DrZZ1pSWoAERt8j.jpg);
   background-blend-mode: overlay;
@@ -111,9 +113,9 @@ main {
 }
 
 .background__overlay {
-  background: #ededed;
   position: absolute;
   z-index: 3;
+  background: #ededed;
 }
 
 .task__container {
@@ -138,36 +140,36 @@ main {
 }
 
 .box__icon {
-  padding: 0 10px 0 10px;
   font-size: 2rem;
   color: #35416bda;
+  padding: 0 10px 0 10px;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
 .checkedbox__icon {
-  padding: 0 10px 0 10px;
+  display: none;
   font-size: 2rem;
   color: #35416bda;
+  padding: 0 10px 0 10px;
   cursor: pointer;
   transition: 0.3s ease;
-  display: none;
 }
 
 .task__title {
+  font-size: 2rem;
+  line-height: 1.4em;
+  color: #35416b;
   width: 95%;
   height: max-content;
   padding-right: 10px;
   margin-right: auto;
-  font-size: 2rem;
-  line-height: 1.4em;
-  color: #35416b;
 }
 
 .drag__icon {
-  padding: 0 10px 0 10px;
   font-size: 2rem;
   color: #35416bda;
+  padding: 0 10px 0 10px;
   border-left: 2px solid #ededed;
   border-right: 2px solid #ededed;
   cursor: move;
@@ -175,9 +177,9 @@ main {
 }
 
 .delete__icon {
-  padding: 0 10px 0 10px;
   font-size: 2rem;
   color: #35416bda;
+  padding: 0 10px 0 10px;
   border-right: 2px solid #ededed;
   cursor: pointer;
   transition: 0.3s ease;
@@ -209,10 +211,10 @@ footer:hover {
 }
 
 .add__task-icon {
-  padding: 5px;
-  margin-right: 5px;
   font-size: 2rem;
   color: #d6a40d;
+  padding: 5px;
+  margin-right: 5px;
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -222,13 +224,13 @@ footer:hover .add__task-icon {
 }
 
 .add__task-text {
-  height: 30px;
-  width: 100%;
-  padding: 5px;
   font-size: 2rem;
   letter-spacing: 0.6px;
   color: #fff;
   text-shadow: 0 0 3px #000000b9;
+  height: 30px;
+  width: 100%;
+  padding: 5px;
   background: none;
   border: none;
   outline: none;
@@ -339,14 +341,13 @@ main::-webkit-scrollbar-thumb:hover {
 }
 
 .header-dark {
+  color: #fff;
   height: 6rem;
   width: 100%;
   padding: 15px;
-  margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
   background: #23224c9b;
   border: 3px solid #d6a40d;
   border-radius: 10px;
@@ -363,18 +364,14 @@ main::-webkit-scrollbar-thumb:hover {
 }
 
 .theme__icon-dark {
-  padding: 5px;
-  margin-left: auto;
   font-size: 2.6rem;
   color: #ffbf00;
+  padding: 5px;
+  margin-left: auto;
   cursor: pointer;
 }
 
 .main-dark {
-  height: 76rem;
-  padding: 15px;
-  margin: auto;
-  margin-top: 15px;
   background-color: #11102480;
   background-image: url(/DrZZ1pSWoAERt8j.jpg);
   background-blend-mode: overlay;
@@ -407,36 +404,36 @@ main::-webkit-scrollbar-thumb:hover {
 }
 
 .box__icon-dark {
-  padding: 0 10px 0 10px;
   font-size: 2rem;
-  color: #d6a40d;
+  color: #ffbf00;
+  padding: 0 10px 0 10px;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
 .check__icon-dark {
-  padding: 0 10px 0 10px;
   font-size: 2rem;
   color: #d6a40d;
+  padding: 0 10px 0 10px;
   cursor: pointer;
   transition: 0.3s ease;
   display: none;
 }
 
 .task__text-dark {
-  width: 95%;
-  height: max-content;
-  padding-right: 10px;
-  margin-right: auto;
   font-size: 2rem;
   line-height: 1.4em;
   color: #fff;
+  height: max-content;
+  width: 95%;
+  padding-right: 10px;
+  margin-right: auto;
 }
 
 .drag__icon-dark {
-  padding: 0 10px 0 10px;
   font-size: 2rem;
   color: #d6a40d;
+  padding: 0 10px 0 10px;
   border-left: 2px solid #2e395f;
   border-right: 2px solid #2e395f;
   cursor: move;
@@ -444,9 +441,9 @@ main::-webkit-scrollbar-thumb:hover {
 }
 
 .delete__icon-dark {
-  padding: 0 10px 0 10px;
   font-size: 2rem;
   color: #d6a40d;
+  padding: 0 10px 0 10px;
   border-right: 2px solid #2e395f;
   cursor: pointer;
   transition: 0.3s ease;
@@ -478,10 +475,10 @@ main::-webkit-scrollbar-thumb:hover {
 }
 
 .add__task-icon-dark {
-  padding: 5px;
-  margin-right: 5px;
   font-size: 2rem;
   color: #23224c;
+  padding: 5px;
+  margin-right: 5px;
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -495,13 +492,13 @@ main::-webkit-scrollbar-thumb:hover {
 }
 
 .add__task-text-dark {
-  height: 30px;
-  width: 100%;
-  padding: 5px;
   font-size: 2rem;
   letter-spacing: 0.6px;
   color: #fff;
   text-shadow: 0 0 3px #000000b9;
+  height: 30px;
+  width: 100%;
+  padding: 5px;
   border: none;
   outline: none;
 }

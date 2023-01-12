@@ -1,5 +1,3 @@
-
-
 // Store all elements
 const body = document.querySelector("body");
 const wrapper = document.getElementById("wrapper");
@@ -126,34 +124,36 @@ checkedBoxIcon.addEventListener("click", function() {
     taskContainer.style.opacity = "initial";
 });
 
+
+addIcon.addEventListener("click", function(){
+    let newTask = addTaskTitle.value;
+    if (body.classList.contains("body-dark")) {
+        main.innerHTML += '<div id="task__container" class="task__container task__container-dark"> <i id="box__icon" class="box__icon far fa-square"></i> <h2 class="task__title">' + newTask + '<i id="drag__icon" class="drag__icon fas fa-grip-vertical"></i> <i id="delete__icon" class="delete__icon far fa-trash-alt"></i>';
+    }
+    else {
+        main.innerHTML += '<div id="task__container" class="task__container"> <i id="box__icon" class="box__icon far fa-square"></i> <h2 class="task__title">' + newTask + '<i id="drag__icon" class="drag__icon fas fa-grip-vertical"></i> <i id="delete__icon" class="delete__icon far fa-trash-alt"></i>';
+    };
+    addTaskTitle.reset();
+    updateListener();
+	updateVars();
+});
+
+
+
+
 // Need to push Task Container into Main Array
 // Need to push Elements (Task Title, Icons) into Task Container Array
 // Need to push input value into Task Title
 // Link Button to Input
+// Function to prevent auto load upon creating new task
 
-const addToTodoList = () => {
-    const newTaskValue = addTaskTitle.value;
-    taskTitle.push(newTaskValue);
-    createNewTask(newTaskValue);
-}
+// get input value
+// push input value as new task title, give it task title class
+// append it to container, give container the right class
 
-const taskItem = document.getElementById("task__item")
 
-const createNewTask = (textToAppend) => {
-    // Creates a new "li"
-    const todoListItemEl = document.createElement("li");
-    // Sets the text of "li" to the "textToAppend"
-    todoListItemEl.innerHTML = textToAppend;
-    // Add the new "li" to the "ul" like this: <ul><li>new li</li></ul>
-    task.appendChild(todoListItemEl);
-  }
 
-  addIcon.addEventListener('click', (event) => {
-    // event.preventDefault, so the page doesn't get reloaded when you press the button
-    event.preventDefault()
-    // execute the addToTodoList function, when you click the "Add Todo" button
-    addToTodoList();
-  });
+
 
 
 /* // New Task Array
@@ -171,12 +171,6 @@ const addToTodoList = () => {
   }; */
 
 
-  // Function to get New Task Title Input
-addIcon.addEventListener('click', (event) => {
-    // Prevent page auto reload
-    event.preventDefault()
-    addToTodoList();
-});
 
 
 
