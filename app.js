@@ -17,29 +17,6 @@ const addIcon = document.querySelector("#add__task-icon");
 const addTaskTitle = document.querySelector("#add__task-text");
 
 
-// Function for toggling Light/Dark Theme
-function themeToggle() {
-    themeIcon.addEventListener("click", function() {
-        body.classList.toggle("body-dark");
-        header.classList.toggle("header-dark");
-        main.classList.toggle("main-dark");
-        footer.classList.toggle("footer-dark");
-        currentDate.classList.toggle("current__date-dark");
-        currentTime.classList.toggle("current__time-dark");
-        themeIcon.classList.toggle("theme__icon-dark");
-        boxIcon.classList.toggle("box__icon-dark");
-        checkedBoxIcon.classList.toggle("check__icon-dark");
-        taskContainer.classList.toggle("task__container-dark");
-        taskTitle.classList.toggle("task__text-dark");
-        dragIcon.classList.toggle("drag__icon-dark");
-        deleteIcon.classList.toggle("delete__icon-dark");
-        addIcon.classList.toggle("add__task-icon-dark");
-        addTaskTitle.classList.toggle("add__task-text-dark");
-        })
-};
-
-themeToggle();
-
 
 // Function to display current Date
 function getCurrentDate() {
@@ -124,16 +101,77 @@ checkedBoxIcon.addEventListener("click", function() {
     taskContainer.style.opacity = "initial";
 });
 
-
 addIcon.addEventListener("click", function(){
-    let newTask = addTaskTitle.value;
+let newTask = addTaskTitle.value;
     if (body.classList.contains("body-dark")) {
-        main.innerHTML += '<div id="task__container" class="task__container task__container-dark"> <i id="box__icon" class="box__icon far fa-square"></i> <h2 class="task__title">' + newTask + '<i id="drag__icon" class="drag__icon fas fa-grip-vertical"></i> <i id="delete__icon" class="delete__icon far fa-trash-alt"></i>';
+        let newTaskContainer = document.createElement("div");
+        newTaskContainer.classList.add("task__container", "task__container-dark");
+
+        let newBoxIcon = document.createElement("i");
+        newBoxIcon.classList.add("box__icon", "box__icon-dark", "far", "fa-square");
+        
+        let newCheckedBoxIcon = document.createElement("i");
+        newCheckedBoxIcon.classList.add("checkedbox__icon", "check__icon-dark", "far", "fa-square");
+
+        let newTaskTitle = document.createElement("h2");
+        newTaskTitle.innerHTML= newTask;
+        newTaskTitle.classList.add("task__title", "task__text-dark");
+
+        let newDragIcon = document.createElement("i");
+        newDragIcon.classList.add("drag__icon", "drag__icon-dark", "fas", "fa-grip-vertical");
+
+        let newDeleteIcon = document.createElement("i");
+        newDeleteIcon.classList.add("delete__icon", "delete__icon-dark", "far", "fa-trash-alt");
+
+        main.append(newTaskContainer);
+        newTaskContainer.append(newBoxIcon, newCheckedBoxIcon, newTaskTitle, newDragIcon, newDeleteIcon);
     }
     else {
-        main.innerHTML += '<div id="task__container" class="task__container"> <i id="box__icon" class="box__icon far fa-square"></i> <h2 class="task__title">' + newTask + '<i id="drag__icon" class="drag__icon fas fa-grip-vertical"></i> <i id="delete__icon" class="delete__icon far fa-trash-alt"></i>';
+        let newTaskContainer = document.createElement("div");
+        newTaskContainer.classList.add("task__container");
+        newTaskContainer.classList.remove("task__container-dark");
+
+
+        let newBoxIcon = document.createElement("i");
+        newBoxIcon.classList.add("box__icon", "far", "fa-square");
+        newBoxIcon.classList.remove("box__icon-dark");
+
+        let newCheckedBoxIcon = document.createElement("i");
+        newCheckedBoxIcon.classList.add("checkedbox__icon", "far", "fa-square");
+        newCheckedBoxIcon.classList.remove("checkedbox__icon-dark");
+
+        let newTaskTitle = document.createElement("h2");
+        newTaskTitle.innerHTML= newTask;
+        newTaskTitle.classList.add("task__title");
+        newTaskTitle.classList.remove("task__title-dark");
+
+        let newDragIcon = document.createElement("i");
+        newDragIcon.classList.add("drag__icon", "fas", "fa-grip-vertical");
+        newDragIcon.classList.remove("drag__icon-dark");
+
+        let newDeleteIcon = document.createElement("i");
+        newDeleteIcon.classList.add("delete__icon", "far", "fa-trash-alt");
+        newDeleteIcon.classList.remove("delete__icon-dark");
+
+        main.append(newTaskContainer);
+        newTaskContainer.append(newBoxIcon, newCheckedBoxIcon, newTaskTitle, newDragIcon, newDeleteIcon);
     };
-    addTaskTitle.reset();
-    updateListener();
-	updateVars();
 });
+
+// Function for toggling Light/Dark Theme
+themeIcon.addEventListener("click", function() {
+    const allTasksEl = document.querySelectorAll(".task__container");
+    
+    for (let i = 0; i < allTasksEl.length; i++) {
+    allTasksEl[i].classList.toggle("task__container-dark");
+    };
+    body.classList.toggle("body-dark");
+    header.classList.toggle("header-dark");
+    main.classList.toggle("main-dark");
+    footer.classList.toggle("footer-dark");
+    currentDate.classList.toggle("current__date-dark");
+    currentTime.classList.toggle("current__time-dark");
+    themeIcon.classList.toggle("theme__icon-dark");
+    addIcon.classList.toggle("add__task-icon-dark");
+    addTaskTitle.classList.toggle("add__task-text-dark");
+    });
