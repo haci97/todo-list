@@ -15,8 +15,7 @@ const dragIcon = document.getElementById("drag__icon");
 const deleteIcon = document.getElementById("delete__icon");
 const addIcon = document.querySelector("#add__task-icon");
 const addTaskTitle = document.querySelector("#add__task-text");
-
-
+let isDarkMode = false;
 
 // Function to display current Date
 function getCurrentDate() {
@@ -160,18 +159,11 @@ let newTask = addTaskTitle.value;
 
 // Function for toggling Light/Dark Theme
 themeIcon.addEventListener("click", function() {
-    const allTasksEl = document.querySelectorAll(".task__container");
-    
-    for (let i = 0; i < allTasksEl.length; i++) {
-    allTasksEl[i].classList.toggle("task__container-dark");
-    };
-    body.classList.toggle("body-dark");
-    header.classList.toggle("header-dark");
-    main.classList.toggle("main-dark");
-    footer.classList.toggle("footer-dark");
-    currentDate.classList.toggle("current__date-dark");
-    currentTime.classList.toggle("current__time-dark");
-    themeIcon.classList.toggle("theme__icon-dark");
-    addIcon.classList.toggle("add__task-icon-dark");
-    addTaskTitle.classList.toggle("add__task-text-dark");
-    });
+    isDarkMode = !isDarkMode;
+
+    if (isDarkMode) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
+});

@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
+:root {
+  --icon-color: #000;
+}
+
+[data-theme="dark"] {
+  --icon-color: #fff;
+}
+
+
 html {
   font-size: 62.5%;
   min-height: 100%;
@@ -86,7 +95,7 @@ header {
 
 .theme__icon {
   font-size: 2.6rem;
-  color: #23224c;
+  color: var(--icon-color);
   padding: 5px;
   margin-left: auto;
   cursor: pointer;
